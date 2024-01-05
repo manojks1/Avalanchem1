@@ -6,9 +6,10 @@ contract Functions {
 
     function increasecount(uint256 amount) public {
         
-        require(amount > 0, "Amount must be greater than 0");
+        if (amount == 0) {
+            revert("Amount must be greater than 0");
+        }
 
-        
         count += amount;
     }
 
